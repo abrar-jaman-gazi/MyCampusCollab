@@ -1,0 +1,13 @@
+<header class="site-header"><div class="container nav-shell">
+<a class="brand" href="{% url 'home' %}"><span class="brand-mark">C</span><span>Campus<span>Collab</span></span></a>
+<nav class="desktop-nav" aria-label="Main navigation"><a href="{% url 'home' %}">Home</a><a href="{% url 'marketplace:gig_list' %}">Find Gigs</a><a href="{% url 'collaboration:project_list' %}">Explore Projects</a><a href="{% url 'accounts:students' %}">Find Students</a></nav>
+<div class="nav-actions">
+{% if user.is_authenticated %}
+<a class="icon-link" href="{% url 'communication:inbox' %}" aria-label="Messages">✉{% if unread_messages %}<b>{{ unread_messages }}</b>{% endif %}</a>
+<a class="icon-link" href="{% url 'communication:notifications' %}" aria-label="Notifications">♢{% if unread_notifications %}<b>{{ unread_notifications }}</b>{% endif %}</a>
+<a class="btn btn-primary btn-sm nav-cta" href="{% url 'marketplace:gig_create' %}">＋ Post a Gig</a>
+<button class="profile-menu-trigger" data-dropdown-toggle="user-menu"><span class="avatar avatar-sm">{% if user.profile.avatar %}<img src="{{ user.profile.avatar.url }}" alt="">{% else %}{{ user.display_name|first|upper }}{% endif %}</span><span class="desktop-only">{{ user.display_name }}</span><span>⌄</span></button>
+<div class="dropdown-menu" id="user-menu"><a href="{% url 'dashboard:home' %}">Dashboard</a><a href="{% url 'accounts:profile' user.username %}">My profile</a><a href="{% url 'accounts:profile_edit' %}">Settings</a>{% if user.role == 'admin' or user.is_superuser %}<a href="{% url 'dashboard:admin_home' %}">Admin panel</a>{% endif %}<form action="{% url 'accounts:logout' %}" method="post">{% csrf_token %}<button>Sign out</button></form></div>
+{% else %}<a class="link-muted" href="{% url 'accounts:login' %}">Log in</a><a class="btn btn-primary btn-sm" href="{% url 'accounts:register' %}">Join CampusCollab</a>{% endif %}
+<button class="menu-toggle" data-menu-toggle aria-label="Open menu">☰</button>
+</div></div><div class="mobile-menu" data-mobile-menu><a href="{% url 'marketplace:gig_list' %}">Find Gigs</a><a href="{% url 'collaboration:project_list' %}">Explore Projects</a><a href="{% url 'accounts:students' %}">Find Students</a></div></header>

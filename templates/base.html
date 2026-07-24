@@ -1,0 +1,14 @@
+{% load static %}
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{% block title %}CampusCollab{% endblock %}</title>
+<meta name="description" content="CampusCollab — student freelancing, research collaboration and portfolio platform.">
+<link rel="stylesheet" href="{% static 'css/app.css' %}">{% block extra_css %}{% endblock %}
+</head><body class="{% block body_class %}{% endblock %}">
+{% include 'components/navbar.html' %}
+{% if messages %}<div class="toast-stack" aria-live="polite">{% for message in messages %}<div class="toast toast-{{ message.tags|default:'info' }}"><span>{{ message }}</span><button type="button" data-dismiss-toast>×</button></div>{% endfor %}</div>{% endif %}
+<main>{% block content %}{% endblock %}</main>
+{% include 'components/footer.html' %}
+{% if user.is_authenticated %}{% include 'components/mobile_nav.html' %}{% endif %}
+<script src="{% static 'js/app.js' %}"></script>{% block extra_js %}{% endblock %}
+</body></html>
