@@ -1,8 +1,14 @@
 # 🎓 CampusCollab
 
-A full-stack university collaboration platform built with **Python, Django, MySQL, HTML5, CSS3, and JavaScript**. CampusCollab helps students showcase their skills, discover paid gigs, submit proposals, create collaboration projects, recruit teammates, communicate, and build a reviewed portfolio.
+> A full-stack university collaboration marketplace where students can showcase skills, discover paid gigs, submit proposals, create projects, recruit teammates, communicate, and build a reviewed portfolio.
+
+**Tech Stack:** Python · Django 6 · MySQL · HTML5 · CSS3 · JavaScript
 
 🌐 **Live Demo:** http://campuscollab-five.vercel.app/
+
+## 📌 Project Overview
+
+CampusCollab is designed as a single platform for university students to find opportunities and collaborate with other students. It combines marketplace features, project/team management, communication, notifications, reviews, dashboards, and administration in one Django application.
 
 ## ✨ Main Features
 
